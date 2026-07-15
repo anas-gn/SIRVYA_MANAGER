@@ -1,0 +1,310 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ─── Palette Bordeaux DOMINANTE ─── */
+    --bordeaux-50:  #FDF2F5;
+    --bordeaux-100: #FCE7EE;
+    --bordeaux-200: #F8D0DD;
+    --bordeaux-300: #F2A8C0;
+    --bordeaux-400: #E8759B;
+    --bordeaux-500: #A83D5C;
+    --bordeaux-600: #9A2B4D;
+    --bordeaux-700: #7A1E3A;
+    --bordeaux-800: #5A1530;
+    --bordeaux-900: #3A0E20;
+    --bordeaux-950: #1A0A0A;
+
+    /* ─── Accents Champagne/Crème ─── */
+    --champagne-50:  #FDF8F0;
+    --champagne-100: #F7E6CA;
+    --champagne-200: #EDD5A8;
+    --cream-50:      #FDFBD4;
+
+    /* ─── Neutres chauds ─── */
+    --warm-50:  #F9F5F2;
+    --warm-100: #F2EDE8;
+    --warm-200: #E8DDD8;
+    --warm-300: #D4C9BE;
+    --warm-400: #B8A0A0;
+    --warm-500: #A08080;
+    --warm-600: #7A1E3A;
+    --warm-700: #5A1530;
+    --warm-800: #3A0E20;
+    --warm-900: #1A0A0A;
+
+    /* ─── Surfaces ─── */
+    --surface:       #1A0A0A;
+    --surface-elevated: #2D1212;
+    --surface-glass: rgba(45, 18, 18, 0.72);
+
+    /* ─── Typo ─── */
+    --font-sans: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    height: 100%;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    height: 100%;
+    font-family: var(--font-sans);
+    background-color: var(--surface);
+    color: var(--warm-50);
+    line-height: 1.6;
+  }
+
+  /* ─── Sélection Bordeaux clair ─── */
+  ::selection {
+    background-color: var(--bordeaux-700);
+    color: var(--champagne-100);
+  }
+
+  /* ─── Scrollbar Bordeaux ─── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bordeaux-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--bordeaux-700);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--bordeaux-500);
+  }
+}
+
+@layer components {
+  /* ─── Card 2026 ─── */
+  .card {
+    @apply rounded-2xl border p-6;
+    background: var(--surface-elevated);
+    border-color: var(--warm-800);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card:hover {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.25),
+      0 12px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    border-color: var(--bordeaux-700);
+  }
+
+  /* ─── Glass Card ─── */
+  .card-glass {
+    @apply rounded-2xl border p-6;
+    background: var(--surface-glass);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-color: rgba(122, 30, 58, 0.3);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* ─── Boutons ─── */
+  .btn-primary {
+    @apply relative overflow-hidden font-medium px-5 py-2.5 rounded-xl transition-all duration-200;
+    background: linear-gradient(135deg, var(--bordeaux-600), var(--bordeaux-500));
+    color: white;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 4px 12px rgba(122, 30, 58, 0.3);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--bordeaux-500), var(--bordeaux-400));
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.25),
+      0 8px 20px rgba(122, 30, 58, 0.35);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    @apply font-medium px-5 py-2.5 rounded-xl transition-all duration-200;
+    background: var(--surface-elevated);
+    color: var(--warm-400);
+    border: 1px solid var(--warm-800);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  .btn-secondary:hover {
+    background: var(--bordeaux-900);
+    border-color: var(--bordeaux-700);
+    color: var(--champagne-100);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-ghost {
+    @apply font-medium px-4 py-2 rounded-xl transition-all duration-200;
+    color: var(--warm-400);
+  }
+  .btn-ghost:hover {
+    background: var(--bordeaux-900);
+    color: var(--champagne-100);
+  }
+
+  /* ─── Input ─── */
+  .input-field {
+    @apply w-full rounded-xl px-4 py-2.5 text-sm transition-all duration-200;
+    background: var(--surface-elevated);
+    border: 1.5px solid var(--warm-800);
+    color: var(--warm-50);
+  }
+  .input-field::placeholder {
+    color: var(--warm-500);
+  }
+  .input-field:hover {
+    border-color: var(--bordeaux-700);
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: var(--bordeaux-500);
+    box-shadow: 0 0 0 3px rgba(168, 61, 92, 0.2);
+    background: var(--bordeaux-950);
+  }
+
+  /* ─── Badge ─── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold tracking-wide;
+  }
+  .badge-bordeaux {
+    background: var(--bordeaux-900);
+    color: var(--bordeaux-300);
+    border: 1px solid var(--bordeaux-700);
+  }
+  .badge-champagne {
+    background: rgba(247, 230, 202, 0.1);
+    color: var(--champagne-200);
+    border: 1px solid rgba(247, 230, 202, 0.2);
+  }
+  .badge-success {
+    background: rgba(6, 95, 70, 0.2);
+    color: #6EE7B7;
+    border: 1px solid rgba(6, 95, 70, 0.3);
+  }
+  .badge-warning {
+    background: rgba(146, 64, 14, 0.2);
+    color: #FCD34D;
+    border: 1px solid rgba(146, 64, 14, 0.3);
+  }
+  .badge-danger {
+    background: rgba(153, 27, 27, 0.2);
+    color: #FCA5A5;
+    border: 1px solid rgba(153, 27, 27, 0.3);
+  }
+
+  /* ─── Section Hero ─── */
+  .hero-bordeaux {
+    @apply relative overflow-hidden rounded-2xl p-8;
+    background: linear-gradient(135deg, var(--bordeaux-900) 0%, var(--bordeaux-800) 50%, var(--bordeaux-700) 100%);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.3),
+      0 12px 40px rgba(0, 0, 0, 0.25);
+  }
+  .hero-bordeaux::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168, 61, 92, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-bordeaux::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(122, 30, 58, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* ─── Navigation Item ─── */
+  .nav-item {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200;
+    color: var(--warm-400);
+  }
+  .nav-item:hover {
+    background: var(--bordeaux-900);
+    color: var(--champagne-100);
+  }
+  .nav-item.active {
+    background: var(--bordeaux-800);
+    color: var(--champagne-100);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--bordeaux-700);
+  }
+}
+
+@layer utilities {
+  /* ─── Animations ─── */
+  .animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .animate-slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ─── Gradient text ─── */
+  .text-gradient-bordeaux {
+    background: linear-gradient(135deg, var(--champagne-100), var(--bordeaux-300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ─── Glow effects ─── */
+  .glow-bordeaux {
+    box-shadow: 0 0 20px rgba(122, 30, 58, 0.3);
+  }
+  .glow-bordeaux-sm {
+    box-shadow: 0 0 12px rgba(122, 30, 58, 0.2);
+  }
+
+  /* ─── Tabular nums for stats ─── */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
