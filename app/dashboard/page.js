@@ -18,7 +18,7 @@ import GrowthChart from "@/components/GrowthChart";
 
 // Leaflet a besoin du navigateur (window/document) -> pas de SSR
 const AdvisorsLocationMap = dynamic(
-  () => import("@/components/AdvisorsLocationMap"),
+  () => import("@/components/Advisorslocationmap"),
   {
     ssr: false,
     loading: () => (
