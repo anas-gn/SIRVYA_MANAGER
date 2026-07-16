@@ -75,6 +75,7 @@ export default function Sidebar({ ville }) {
             >
               <Icon
                 strokeWidth={2}
+                
                 className={`w-5 h-5 lg:w-[18px] lg:h-[18px] min-[1920px]:w-6 min-[1920px]:h-6 min-[2560px]:w-7 min-[2560px]:h-7 shrink-0 ${
                   !active ? "group-hover:scale-110 transition-transform" : ""
                 }`}
