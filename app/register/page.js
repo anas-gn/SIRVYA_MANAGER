@@ -166,8 +166,7 @@ export default function RegisterPage() {
         <div className="w-full max-w-md">
           <div className="flex lg:hidden items-center gap-3 text-[#f5e6d3] mb-10 justify-center">
             <img src="/logo_dark.png" width="160" height="100" alt="SIRVYA Logo" />
-            <span className="text-2xl font-black tracking-tight">SIRVYA
-            </span>
+           
           </div>
 
           <div className="mb-8">

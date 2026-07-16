@@ -7,7 +7,7 @@ import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2 } from "lucide-react";
 
 function FitlekLogo({ className = "h-10 w-auto" }) {
   return (
-   <img src="/logo_light.png" width="190" height="70" alt="Fitlek Logo" className={className} />
+   <img src="/logo_dark.png" width="190" height="100" alt="Fitlek Logo"  />
   );
 }
 
@@ -111,7 +111,7 @@ export default function LoginPage() {
           </div>
 
           <p className="text-xs text-[#c98b9a]/70">
-            © {new Date().getFullYear()} Fitlek. Tous droits réservés.
+            © {new Date().getFullYear()} SIRVYA. Tous droits réservés.
           </p>
         </div>
       </div>
@@ -121,7 +121,6 @@ export default function LoginPage() {
         <div className="w-full max-w-sm">
           <div className="flex lg:hidden items-center gap-3 text-[#f5e6d3] mb-10 justify-center">
             <FitlekLogo className="h-10 w-auto text-[#c98b9a]" />
-            <span className="text-2xl font-black tracking-tight">Fitlek</span>
           </div>
 
           <div className="mb-8">

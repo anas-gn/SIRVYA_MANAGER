@@ -22,7 +22,7 @@ const AdvisorsLocationMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[460px] rounded-xl border border-[#3d1a1a] bg-[#1a0a0a]/50 flex items-center justify-center text-sm text-[#a08080]">
+      <div className="w-full h-[300px] sm:h-[380px] min-[1920px]:h-[520px] rounded-xl border border-[#3d1a1a] bg-[#1a0a0a]/50 flex items-center justify-center text-sm text-[#a08080]">
         Chargement de la carte…
       </div>
     ),
@@ -184,42 +184,44 @@ export default async function DashboardHome() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8 min-[1920px]:space-y-10 min-[1920px]:max-w-[1900px] min-[1920px]:mx-auto">
       {/* Header */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#7a1e3a] via-[#5a1530] to-[#3a0e20] p-8 text-white shadow-xl">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#7a1e3a] via-[#5a1530] to-[#3a0e20] p-5 sm:p-8 min-[1920px]:p-10 text-white shadow-xl">
         <div className="absolute top-0 right-0 -mt-4 -mr-4 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
         <div className="absolute bottom-0 left-0 -mb-4 -ml-4 h-24 w-24 rounded-full bg-[#D1F96B]/10 blur-xl" />
 
         <div className="relative z-10">
-          <div className="flex items-center gap-2 text-[#c98b9a] text-sm font-medium mb-2">
-            <MapPin className="h-4 w-4" />
+          <div className="flex items-center gap-2 text-[#c98b9a] text-sm min-[1920px]:text-base font-medium mb-2">
+            <MapPin className="h-4 w-4 min-[1920px]:h-5 min-[1920px]:w-5" />
             <span>{auth.ville}</span>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">Vue d'ensemble</h1>
-          <p className="mt-2 text-[#c98b9a] max-w-xl">
+          <h1 className="text-2xl sm:text-3xl min-[1920px]:text-4xl font-bold tracking-tight">
+            Vue d'ensemble
+          </h1>
+          <p className="mt-2 text-[#c98b9a] max-w-xl min-[1920px]:max-w-2xl min-[1920px]:text-lg">
             Gérez les advisors et coaches de votre ville. Surveillez les réservations et l'activité en temps réel.
           </p>
         </div>
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 min-[1920px]:gap-6">
         {cards.map((c) => (
           <Link
             key={c.label}
             href={c.href}
-            className="group relative overflow-hidden rounded-2xl border border-[#3d1a1a] bg-[#2d1212] p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#7a1e3a]/50"
+            className="group relative overflow-hidden rounded-2xl border border-[#3d1a1a] bg-[#2d1212] p-5 sm:p-6 min-[1920px]:p-7 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#7a1e3a]/50"
           >
             <div className="flex items-start justify-between">
-              <div className={`rounded-xl ${c.iconBg} p-3`}>
-                <c.icon className={`h-6 w-6 ${c.accent}`} />
+              <div className={`rounded-xl ${c.iconBg} p-3 min-[1920px]:p-3.5`}>
+                <c.icon className={`h-6 w-6 min-[1920px]:h-7 min-[1920px]:w-7 ${c.accent}`} />
               </div>
               <ArrowUpRight className="h-5 w-5 text-[#a08080] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#c98b9a]" />
             </div>
 
             <div className="mt-4">
-              <p className="text-sm font-medium text-[#a08080]">{c.label}</p>
-              <p className="mt-1 text-3xl font-bold text-[#f5e6d3] tabular-nums">
+              <p className="text-sm min-[1920px]:text-base font-medium text-[#a08080]">{c.label}</p>
+              <p className="mt-1 text-2xl sm:text-3xl min-[1920px]:text-4xl font-bold text-[#f5e6d3] tabular-nums">
                 {c.value}
               </p>
             </div>
@@ -230,36 +232,44 @@ export default async function DashboardHome() {
       </div>
 
       {/* Tableau des nouveaux advisors */}
-      <div className="rounded-2xl border border-[#3d1a1a] bg-[#2d1212]/80 backdrop-blur-sm p-6 shadow-sm">
-        <div className="flex items-center justify-between mb-6">
+      <div className="rounded-2xl border border-[#3d1a1a] bg-[#2d1212]/80 backdrop-blur-sm p-4 sm:p-6 min-[1920px]:p-8 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-5 sm:mb-6">
           <div className="flex items-center gap-3">
-            <div className="rounded-xl bg-[#7a1e3a]/20 p-2">
-              <Users className="h-5 w-5 text-[#c98b9a]" />
+            <div className="rounded-xl bg-[#7a1e3a]/20 p-2 min-[1920px]:p-2.5 shrink-0">
+              <Users className="h-5 w-5 min-[1920px]:h-6 min-[1920px]:w-6 text-[#c98b9a]" />
             </div>
             <div>
-              <h2 className="text-lg font-semibold text-[#f5e6d3]">Nouveaux Advisors</h2>
-              <p className="text-sm text-[#a08080]">Derniers advisors créés dans votre ville</p>
+              <h2 className="text-base sm:text-lg min-[1920px]:text-xl font-semibold text-[#f5e6d3]">
+                Nouveaux Advisors
+              </h2>
+              <p className="text-xs sm:text-sm min-[1920px]:text-base text-[#a08080]">
+                Derniers advisors créés dans votre ville
+              </p>
             </div>
           </div>
           <Link
             href="/dashboard/advisors"
-            className="inline-flex items-center gap-1 rounded-lg bg-[#7a1e3a]/20 px-4 py-2 text-sm font-medium text-[#c98b9a] transition-colors hover:bg-[#7a1e3a]/30"
+            className="self-start sm:self-auto inline-flex items-center gap-1 rounded-lg bg-[#7a1e3a]/20 px-4 py-2 min-[1920px]:px-5 min-[1920px]:py-2.5 text-sm min-[1920px]:text-base font-medium text-[#c98b9a] transition-colors hover:bg-[#7a1e3a]/30"
           >
             Voir tout
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full">
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+          <table className="w-full min-w-[640px] sm:min-w-0">
             <thead>
               <tr className="border-b border-[#3d1a1a] text-left">
-                <th className="pb-3 text-sm font-medium text-[#a08080]">Advisor</th>
-                <th className="pb-3 text-sm font-medium text-[#a08080]">Spécialité</th>
-                <th className="pb-3 text-sm font-medium text-[#a08080]">Entreprise</th>
-                <th className="pb-3 text-sm font-medium text-[#a08080]">Date de création</th>
-                <th className="pb-3 text-sm font-medium text-[#a08080]">Statut</th>
-                <th className="pb-3 text-sm font-medium text-[#a08080]">Action</th>
+                <th className="pb-3 text-sm min-[1920px]:text-base font-medium text-[#a08080]">Advisor</th>
+                <th className="pb-3 text-sm min-[1920px]:text-base font-medium text-[#a08080]">Spécialité</th>
+                <th className="hidden md:table-cell pb-3 text-sm min-[1920px]:text-base font-medium text-[#a08080]">
+                  Entreprise
+                </th>
+                <th className="hidden md:table-cell pb-3 text-sm min-[1920px]:text-base font-medium text-[#a08080]">
+                  Date de création
+                </th>
+                <th className="pb-3 text-sm min-[1920px]:text-base font-medium text-[#a08080]">Statut</th>
+                <th className="pb-3 text-sm min-[1920px]:text-base font-medium text-[#a08080]">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[#3d1a1a]/50">
@@ -267,31 +277,33 @@ export default async function DashboardHome() {
                 <tr key={advisor.id} className="group hover:bg-[#3d1a1a]/20 transition-colors">
                   <td className="py-4">
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#7a1e3a] to-[#c98b9a] flex items-center justify-center text-sm font-bold text-white">
+                      <div className="h-9 w-9 sm:h-10 sm:w-10 min-[1920px]:h-12 min-[1920px]:w-12 shrink-0 rounded-full bg-gradient-to-br from-[#7a1e3a] to-[#c98b9a] flex items-center justify-center text-sm min-[1920px]:text-base font-bold text-white">
                         {advisor.firstName?.[0]}{advisor.lastName?.[0]}
                       </div>
-                      <div>
-                        <p className="text-sm font-medium text-[#f5e6d3]">
+                      <div className="min-w-0">
+                        <p className="text-sm min-[1920px]:text-base font-medium text-[#f5e6d3] whitespace-nowrap">
                           {advisor.firstName} {advisor.lastName}
                         </p>
-                        <p className="text-xs text-[#a08080]">{advisor.email}</p>
+                        <p className="text-xs min-[1920px]:text-sm text-[#a08080] truncate max-w-[180px] sm:max-w-none">
+                          {advisor.email}
+                        </p>
                       </div>
                     </div>
                   </td>
                   <td className="py-4">
-                    <span className="inline-flex items-center rounded-full bg-[#7a1e3a]/20 px-2.5 py-1 text-xs font-medium text-[#c98b9a]">
+                    <span className="inline-flex items-center rounded-full bg-[#7a1e3a]/20 px-2.5 py-1 text-xs min-[1920px]:text-sm font-medium text-[#c98b9a] whitespace-nowrap">
                       {advisor.specialty || "Non spécifié"}
                     </span>
                   </td>
-                  <td className="py-4">
-                    <div className="flex items-center gap-2 text-sm text-[#a08080]">
-                      <Building2 className="h-4 w-4 text-[#a08080]/60" />
+                  <td className="hidden md:table-cell py-4">
+                    <div className="flex items-center gap-2 text-sm min-[1920px]:text-base text-[#a08080]">
+                      <Building2 className="h-4 w-4 text-[#a08080]/60 shrink-0" />
                       {advisor.companyName || "-"}
                     </div>
                   </td>
-                  <td className="py-4">
-                    <div className="flex items-center gap-2 text-sm text-[#a08080]">
-                      <Calendar className="h-4 w-4 text-[#a08080]/60" />
+                  <td className="hidden md:table-cell py-4">
+                    <div className="flex items-center gap-2 text-sm min-[1920px]:text-base text-[#a08080] whitespace-nowrap">
+                      <Calendar className="h-4 w-4 text-[#a08080]/60 shrink-0" />
                       {new Date(advisor.createdAt).toLocaleDateString("fr-FR", {
                         day: "numeric",
                         month: "short",
@@ -301,7 +313,7 @@ export default async function DashboardHome() {
                   </td>
                   <td className="py-4">
                     <span
-                      className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${
+                      className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs min-[1920px]:text-sm font-medium whitespace-nowrap ${
                         advisor.isApproved
                           ? "bg-emerald-500/20 text-emerald-400"
                           : "bg-amber-500/20 text-amber-400"
@@ -318,7 +330,7 @@ export default async function DashboardHome() {
                   <td className="py-4">
                     <Link
                       href={`/dashboard/advisors/${advisor.id}`}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-[#c98b9a] opacity-0 group-hover:opacity-100 transition-opacity hover:text-[#f5e6d3]"
+                      className="inline-flex items-center gap-1 text-sm min-[1920px]:text-base font-medium text-[#c98b9a] sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:text-[#f5e6d3] whitespace-nowrap"
                     >
                       Détails
                       <ArrowUpRight className="h-3 w-3" />
@@ -339,15 +351,17 @@ export default async function DashboardHome() {
       </div>
 
       {/* Carte avec les pins de tous les advisors */}
-      <div className="rounded-2xl border border-[#3d1a1a] bg-[#2d1212]/80 backdrop-blur-sm p-6 shadow-sm">
-        <div className="flex items-center justify-between mb-6">
+      <div className="rounded-2xl border border-[#3d1a1a] bg-[#2d1212]/80 backdrop-blur-sm p-4 sm:p-6 min-[1920px]:p-8 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-5 sm:mb-6">
           <div className="flex items-center gap-3">
-            <div className="rounded-xl bg-[#7a1e3a]/20 p-2">
-              <MapPinned className="h-5 w-5 text-[#c98b9a]" />
+            <div className="rounded-xl bg-[#7a1e3a]/20 p-2 min-[1920px]:p-2.5 shrink-0">
+              <MapPinned className="h-5 w-5 min-[1920px]:h-6 min-[1920px]:w-6 text-[#c98b9a]" />
             </div>
             <div>
-              <h2 className="text-lg font-semibold text-[#f5e6d3]">Localisation des Advisors</h2>
-              <p className="text-sm text-[#a08080]">
+              <h2 className="text-base sm:text-lg min-[1920px]:text-xl font-semibold text-[#f5e6d3]">
+                Localisation des Advisors
+              </h2>
+              <p className="text-xs sm:text-sm min-[1920px]:text-base text-[#a08080]">
                 {advisorsWithLocation.length} advisor{advisorsWithLocation.length > 1 ? "s" : ""} géolocalisé
                 {advisorsWithLocation.length > 1 ? "s" : ""} dans {auth.ville}
               </p>
